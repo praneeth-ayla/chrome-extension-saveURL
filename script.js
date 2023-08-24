@@ -3,7 +3,11 @@ let inputEl = document.querySelector("#input-el");
 let saveBtn = document.querySelector("#save-btn");
 
 let leadsFromStorage = JSON.parse(localStorage.getItem("myLeads"));
-console.log(leadsFromStorage)
+// console.log(leadsFromStorage)
+if (leadsFromStorage) {
+    myLeads = leadsFromStorage;
+    renderLeads();
+}
 
 saveBtn.addEventListener("click", function() {
 
