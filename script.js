@@ -1,4 +1,4 @@
-let myLeads = ["hello","hellod","helloa","hellos"];
+let myLeads = [];
 let inputEl = document.querySelector("#input-el");
 
 
@@ -7,13 +7,26 @@ let inputEl = document.querySelector("#input-el");
 let saveBtn = document.querySelector("#save-btn");
 
 saveBtn.addEventListener("click", function() {
+    if (inputEl.value.length >0) {
     let pushEL = inputEl.value
     myLeads.push(pushEL);
-    console.log(myLeads)
-})
+    inputEl.value = "";
+    renderLeads();
+}})
 
+function renderLeads() {
 let ulEl = document.querySelector("#ul-el");
-
+let listItems = ""
 for (let i =0; i < myLeads.length; i++) {
-    ulEl.innerHTML += "<li>"+myLeads[i] + "</li>";
+        listItems +=
+        `
+        <li>
+            <a href = "${myLeads[i]}">${myLeads[i]}</a>
+        </li>
+        `
+    console.log(listItems)
 }
+ulEl.innerHTML = listItems; 
+}
+
+
